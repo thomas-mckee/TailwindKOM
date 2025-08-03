@@ -6,9 +6,8 @@ const SegmentList = ({ segments }) => {
         .map((segment) => (
           <div key={segment.id} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
             <div className="p-4 border rounded shadow h-full">
-              <h3 className="text-lg font-semibold">{segment.name}</h3>
+              <h3 className="text-lg font-bold">{segment.name}</h3>
               <p>Distance: {(segment.distance / 1000).toFixed(2)} km</p>
-              <p>Bearing: {segment.bearing?.toFixed(1)}°</p>
               <p>Wind Impact Score: {segment.angleDiff.toFixed(1)}</p>
               <a
                 href={`https://www.strava.com/segments/${segment.id}`}
