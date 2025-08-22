@@ -29,7 +29,7 @@ export const InspirationalQuote = () => {
           onClick={handleNewQuote}
           className="text-orange-500 hover:text-orange-600 hover:bg-orange-100 cursor-pointer text-sm font-medium flex-shrink-0 p-2 rounded-md"
         >
-          <RotateCw className="h-5 w-5" />
+          <RotateCw className="h-6 w-6" />
         </button>
       </div>
     </div>

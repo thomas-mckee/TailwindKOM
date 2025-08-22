@@ -103,8 +103,8 @@ function App() {
 				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
 					<div className="flex items-center justify-between h-20">
 						<div className='flex items-center space-x-2 sm:space-x-3'>
-							<Wind className='h-8 w-8 sm:h-12 sm:w-12 text-orange-500' />
-							<h1 className='text-lg sm:text-2xl font-bold text-gray-900'>TailwindKOM</h1>
+							<Wind className='h-10 w-10 text-orange-500' />
+							<h1 className='text-2xl font-bold text-gray-900'>TailwindKOM</h1>
 						</div>
 						<div className="flex items-center space-x-1 sm:space-x-4">
 							{tokens?.athlete && (
@@ -118,14 +118,14 @@ function App() {
 								disabled={segmentsLoading || weatherLoading}
 								className='flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-600 cursor-pointer hover:text-gray-900 rounded-md hover:bg-gray-100 transition duration-200 disabled:opacity-50'
 							>
-								<RefreshCw className={`h-4 w-4 ${(segmentsLoading || weatherLoading) ?
+								<RefreshCw className={`h-6 w-6 ${(segmentsLoading || weatherLoading) ?
 									'animate-spin' : ''}`} />
 								<span className="hidden sm:inline">Refresh</span>
 							</button>
 							<button 
 								onClick={logout}
 								className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-red-600 cursor-pointer hover:text-red-700 rounded-md hover:bg-red-50 transition duration-200">
-								<LogOut className='h-4 w-4' />
+								<LogOut className='h-6 w-6' />
 								<span className="hidden sm:inline">Logout</span>
 							</button>
 						</div>
