@@ -81,7 +81,16 @@ export const inspirationalQuotes = [
   }
 ];
 
+let lastQuoteIndex = -1;
+
 export const getRandomQuote = () => {
-  const randomIndex = Math.floor(Math.random() * inspirationalQuotes.length);
+  let randomIndex;
+  
+  // Ensure we don't get the same quote twice in a row
+  do {
+    randomIndex = Math.floor(Math.random() * inspirationalQuotes.length);
+  } while (randomIndex === lastQuoteIndex && inspirationalQuotes.length > 1);
+  
+  lastQuoteIndex = randomIndex;
   return inspirationalQuotes[randomIndex];
 };
