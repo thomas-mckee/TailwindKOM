@@ -40,7 +40,13 @@ export function useSegmentsWithWeather() {
 
       const validSegments = segmentsWithWeather
         .filter((segment) => segment !== null && segment.windScore.score !== undefined)
-        .sort((a, b) => b.windScore.score - a.windScore.score);
+        .sort((a, b) => { // Sort by windScore and then by tailwind > crosswind > headwind
+          const scoreDiff = b.windScore.score - a.windScore.score;
+          if (scoreDiff !== 0) return scoreDiff;
+          
+          const impactOrder = { tailwind: 3, crosswind: 2, headwind: 1 };
+          return impactOrder[b.windScore.impact] - impactOrder[a.windScore.impact];
+        });
 
       setSegments(validSegments);
       console.log(validSegments);

@@ -99,16 +99,16 @@ function App() {
 
 	return (
 		<div className='min-h-screen bg-gray-50'>
-			<header className='bg-white shadow-sm border-b'>
+			<header className='bg-gradient-to-r from-orange-200 to-blue-200 shadow-sm border-b border-orange-200'>
 				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
 					<div className="flex items-center justify-between h-20">
-						<div className='flex items-center space-x-2 sm:space-x-3'>
+						<a href='' className='flex items-center space-x-2 sm:space-x-3'>
 							<Wind className='h-10 w-10 text-orange-500' />
 							<h1 className='text-2xl font-bold text-gray-900'>TailwindKOM</h1>
-						</div>
+						</a>
 						<div className="flex items-center space-x-1 sm:space-x-4">
 							{tokens?.athlete && (
-								<div className="hidden md:flex items-center space-x-2 text-sm text-gray-400">
+								<div className="hidden md:flex items-center space-x-2 text-sm text-gray-500">
 									<User className="h-4 w-4" />
 									<span className="truncate max-w-24 lg:max-w-none">{tokens.athlete.firstname} {tokens.athlete.lastname}</span>
 								</div>
