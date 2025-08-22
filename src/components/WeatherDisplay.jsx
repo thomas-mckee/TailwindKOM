@@ -55,9 +55,9 @@ export const WeatherDisplay = ({ weather, loading }) => {
       href={`https://openweathermap.org/city/${weather.id}`}
       target='_blank'
       rel="noopener noreferrer"
-      className="block bg-white rounded-lg shadow-md p-4 sm:p-6 mb-6 hover:shadow-lg transition-shadow cursor-pointer"
+      className="block bg-white rounded-lg shadow-md sm:p-6 mb-6 p-4 hover:shadow-lg transition-shadow cursor-pointer"
     >
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 mb-2">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <img
@@ -75,35 +75,35 @@ export const WeatherDisplay = ({ weather, loading }) => {
         </div>
 
         <div className="grid grid-cols-3 gap-4 sm:flex sm:items-center sm:space-x-6 sm:gap-0">
-          <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-2 text-center sm:text-left">
+          <div className="flex items-center justify-center space-x-2 text-center">
             <Thermometer className="h-6 w-6 sm:h-7 sm:w-7 text-orange-500" />
             <span className="text-lg sm:text-xl font-semibold">
               {formatTemperature(temperature)}
             </span>
           </div>
 
-          <div className="flex flex-col items-center space-y-1 text-center">
-            <Wind className="h-6 w-6 sm:h-7 sm:w-7 text-blue-500" />
-            <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center space-y-1 text-center pt-6">
+            <div className="flex items-center space-x-2">
+              <Wind className="h-6 w-6 sm:h-7 sm:w-7 text-blue-500" />
               <span className="text-lg sm:text-xl font-semibold">
                 {formatWindSpeed(windSpeed)}
               </span>
-              <div className='flex items-center space-x-1'>
-                <MoveUp className='h-4 w-4 sm:h-5 sm:w-5 text-blue-500' style={{ transform: `rotate(${(windDirection + 180)}deg)` }}/>
-                <span className="text-xs text-gray-500">
-                  {getWindDirectionText(windDirection)}
-                </span>
-              </div>
+            </div>
+            <div className='flex items-center space-x-1'>
+              <MoveUp className='h-4 w-4 sm:h-5 sm:w-5 text-blue-500' style={{ transform: `rotate(${(windDirection + 180)}deg)` }}/>
+              <span className="text-xs text-gray-500">
+                {getWindDirectionText(windDirection)}
+              </span>
             </div>
           </div>
 
           {weather.main.humidity && (
-            <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-2 text-center sm:text-left">
-              <Cloud className="h-6 w-6 sm:h-7 sm:w-7 text-gray-500" />
-              <div className="text-center sm:text-left">
+            <div className="flex flex-col items-center space-y-1 text-center pt-6">
+              <div className="flex items-center space-x-2">
+                <Cloud className="h-6 w-6 sm:h-7 sm:w-7 text-gray-500" />
                 <div className="text-lg sm:text-xl font-semibold">{weather.main.humidity}%</div>
-                <p className="text-xs text-gray-500">Humidity</p>
               </div>
+              <p className="text-xs text-gray-500">Humidity</p>
             </div>
           )}
         </div>
