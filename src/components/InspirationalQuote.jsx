@@ -15,9 +15,9 @@ export const InspirationalQuote = () => {
 
   return (
     <div className="lg:block bg-gradient-to-r from-orange-50 to-blue-50 rounded-lg p-6 mb-6 border border-orange-100">
-      <div className="flex items-center justify-center space-x-3">
+      <div className="flex items-center justify-between">
         <Quote className="h-6 w-6 text-orange-500 flex-shrink-0" />
-        <div className="text-center">
+        <div className="text-center flex-1 mx-4">
           <p className="text-lg font-medium text-gray-700 italic mb-2">
             "{currentQuote.text}"
           </p>
@@ -27,9 +27,9 @@ export const InspirationalQuote = () => {
         </div>
         <button 
           onClick={handleNewQuote}
-          className="text-orange-500 hover:text-orange-600 cursor-pointer text-sm font-medium underline flex-shrink-0 ml-4"
+          className="text-orange-500 hover:text-orange-600 hover:bg-orange-100 cursor-pointer text-sm font-medium flex-shrink-0 p-2 rounded-md"
         >
-          <RotateCw />
+          <RotateCw className="h-5 w-5" />
         </button>
       </div>
     </div>

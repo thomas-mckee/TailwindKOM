@@ -116,7 +116,7 @@ function App() {
 							<button
 								onClick={handleRefresh}
 								disabled={segmentsLoading || weatherLoading}
-								className='flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-600 cursor-pointer hover:text-gray-900 hover:bg-gray-100 transition duration-200 disabled:opacity-50'
+								className='flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-600 cursor-pointer hover:text-gray-900 rounded-md hover:bg-gray-100 transition duration-200 disabled:opacity-50'
 							>
 								<RefreshCw className={`h-4 w-4 ${(segmentsLoading || weatherLoading) ?
 									'animate-spin' : ''}`} />

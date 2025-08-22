@@ -51,7 +51,12 @@ export const WeatherDisplay = ({ weather, loading }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-6">
+    <a 
+      href={`https://openweathermap.org/city/${weather.id}`}
+      target='_blank'
+      rel="noopener noreferrer"
+      className="block bg-white rounded-lg shadow-md p-4 sm:p-6 mb-6 hover:shadow-lg transition-shadow cursor-pointer"
+    >
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
@@ -103,6 +108,6 @@ export const WeatherDisplay = ({ weather, loading }) => {
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 }

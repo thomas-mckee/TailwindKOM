@@ -73,7 +73,7 @@ export const inspirationalQuotes = [
   },
   {
     text: "There is no dark side of the Moon. It's all dark, really.",
-    author: "Pink Floyd, Pink Floyd: Dark Side of the Moon"
+    author: "Pink Floyd, Dark Side of the Moon"
   },
   {
     text: "Ooh, you can dance, you can jive, having the time of your life",
