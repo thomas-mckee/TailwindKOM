@@ -10,6 +10,7 @@ import { mockSegments } from './data/mockSegments';
 
 import { SegmentCard } from './components/SegmentCard';
 import { WeatherDisplay } from './components/WeatherDisplay';
+import { InspirationalQuote } from './components/InspirationalQuote';
 
 function App() {
 	const { isAuthenticated, loading: authLoading, login, logout, handleAuthCallback, tokens } = useAuth();
@@ -100,32 +101,32 @@ function App() {
 		<div className='min-h-screen bg-gray-50'>
 			<header className='bg-white shadow-sm border-b'>
 				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-					<div className="flex items-center justify-between h-16">
-						<div className='flex items-center space-x-3'>
-							<Wind className='h-12 w-12 text-orange-500' />
-							<h1 className='text-2xl font-bold text-gray-900'>TailwindKOM</h1>
+					<div className="flex items-center justify-between h-20">
+						<div className='flex items-center space-x-2 sm:space-x-3'>
+							<Wind className='h-8 w-8 sm:h-12 sm:w-12 text-orange-500' />
+							<h1 className='text-lg sm:text-2xl font-bold text-gray-900'>TailwindKOM</h1>
 						</div>
-						<div className="flex items-center space-x-4">
+						<div className="flex items-center space-x-1 sm:space-x-4">
 							{tokens?.athlete && (
-								<div className="flex item-center space-x-2 text-sm text-gray-400">
+								<div className="hidden md:flex items-center space-x-2 text-sm text-gray-400">
 									<User className="h-4 w-4" />
-									<span>{tokens.athlete.firstname} {tokens.athlete.lastname} </span>
+									<span className="truncate max-w-24 lg:max-w-none">{tokens.athlete.firstname} {tokens.athlete.lastname}</span>
 								</div>
 							)}
 							<button
 								onClick={handleRefresh}
 								disabled={segmentsLoading || weatherLoading}
-								className='flex items-center space-x-2 px-3 py-3 text-sm font-medium text-gray-600 cursor-pointer hover:text-gray-900 hover:bg-gray-100 transition duration-200 disabled:opacity-50'
+								className='flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-600 cursor-pointer hover:text-gray-900 hover:bg-gray-100 transition duration-200 disabled:opacity-50'
 							>
 								<RefreshCw className={`h-4 w-4 ${(segmentsLoading || weatherLoading) ?
 									'animate-spin' : ''}`} />
-								<span>Refresh</span>
+								<span className="hidden sm:inline">Refresh</span>
 							</button>
 							<button 
 								onClick={logout}
-								className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-red-600 cursor-pointer hover:text-red-700 rounded md hover:bg-red-50 transition duration-200">
+								className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-red-600 cursor-pointer hover:text-red-700 rounded-md hover:bg-red-50 transition duration-200">
 								<LogOut className='h-4 w-4' />
-								<span>Logout</span>
+								<span className="hidden sm:inline">Logout</span>
 							</button>
 						</div>
 					</div>
@@ -133,6 +134,7 @@ function App() {
 			</header>
 			
 			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+				<InspirationalQuote />
 				<WeatherDisplay weather={currentWeather} loading={weatherLoading} />
 
 				<div>

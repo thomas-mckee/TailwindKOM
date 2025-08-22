@@ -51,17 +51,17 @@ export const WeatherDisplay = ({ weather, loading }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-      <div className="flex items-center justify-between">
+    <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <img
               src={getWeatherIconUrl(condition.icon)}
               alt={condition.description}
-              className="w-12 h-12"
+              className="w-10 h-10 sm:w-12 sm:h-12"
             />
             <div>
-              <h3 className="text-lg font-semibold capitalize">
+              <h3 className="text-base sm:text-lg font-semibold capitalize">
                 {condition.description}
               </h3>
               <p className="text-gray-500 text-sm">Current Location</p>
@@ -69,37 +69,34 @@ export const WeatherDisplay = ({ weather, loading }) => {
           </div>
         </div>
 
-        <div className="flex items-center space-x-6">
-          <div className="flex items-center space-x-2">
-            <Thermometer className="h-7 w-7 text-orange-500" />
-            <span className="text-xl font-semibold">
+        <div className="grid grid-cols-3 gap-4 sm:flex sm:items-center sm:space-x-6 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-2 text-center sm:text-left">
+            <Thermometer className="h-6 w-6 sm:h-7 sm:w-7 text-orange-500" />
+            <span className="text-lg sm:text-xl font-semibold">
               {formatTemperature(temperature)}
             </span>
           </div>
 
-          <div className="flex items-center space-x-2">
-            <Wind className="h-7 w-7 text-blue-500" />
-            <div className="text-center">
-              <div className="flex items-center space-x-2">
-                <span className="text-xl font-semibold">
-                  {formatWindSpeed(windSpeed)}
+          <div className="flex flex-col items-center space-y-1 text-center">
+            <Wind className="h-6 w-6 sm:h-7 sm:w-7 text-blue-500" />
+            <div className="flex flex-col items-center">
+              <span className="text-lg sm:text-xl font-semibold">
+                {formatWindSpeed(windSpeed)}
+              </span>
+              <div className='flex items-center space-x-1'>
+                <MoveUp className='h-4 w-4 sm:h-5 sm:w-5 text-blue-500' style={{ transform: `rotate(${(windDirection + 180)}deg)` }}/>
+                <span className="text-xs text-gray-500">
+                  {getWindDirectionText(windDirection)}
                 </span>
-								<div className='flex flex-col'>
-									<MoveUp className='h-7 w-7 text-blue-500 flex items-center justify-center mb-1'  style={{ transform: `rotate(${(windDirection + 180)}deg)` }}/>
-									<span className="text-xs text-gray-500">
-                		{getWindDirectionText(windDirection)}
-              		</span>
-								</div>
               </div>
-              
             </div>
           </div>
 
           {weather.main.humidity && (
-            <div className="flex items-center space-x-2">
-              <Cloud className="h-7 w-7 text-gray-500" />
-              <div className="text-center">
-                <span className="text-xl font-semibold">{weather.main.humidity}%</span>
+            <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-2 text-center sm:text-left">
+              <Cloud className="h-6 w-6 sm:h-7 sm:w-7 text-gray-500" />
+              <div className="text-center sm:text-left">
+                <div className="text-lg sm:text-xl font-semibold">{weather.main.humidity}%</div>
                 <p className="text-xs text-gray-500">Humidity</p>
               </div>
             </div>
